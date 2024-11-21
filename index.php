@@ -13,9 +13,18 @@ CORS
 =============================================*/
 
 header('Access-Control-Allow-Origin: *');
-header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization");
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 header('content-type: application/json; charset=utf-8');
+
+// Si es una solicitud OPTIONS (preflight), finalizar la ejecución
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
+
+// Aquí va el resto de tu lógica PHP
+echo json_encode(["message" => "CORS configurado correctamente"]);
 
 /*=============================================
 Requerimientos

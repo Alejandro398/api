@@ -303,7 +303,7 @@ class PostController{
 	Metodo para verificar y validar el codigo enviado
 	=============================================*/
 	public function postVerifyRecoveryCode($table, $data, $suffix) {
-		if (!isset($data["email_user"]) || !isset($data["reset_code_user"])) {
+		if (!isset($data["email_"]) || !isset($data["reset_code_user"])) {
 			$this->fncResponse(null, "Email and reset code are required", $suffix);
 			return;
 		}

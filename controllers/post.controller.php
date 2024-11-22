@@ -107,7 +107,7 @@ class PostController{
 		Validar que el usuario exista en BD
 		=============================================*/
 
-		$response = GetModel::getDataFilter($table, "*", "email_user".$suffix, $data["email_user".$suffix], null,null,null,null);
+		$response = GetModel::getDataFilter($table, "*", "email_".$suffix, $data["email_".$suffix], null,null,null,null);
 		
 		if(!empty($response)){	
 
